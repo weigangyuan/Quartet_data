@@ -1,0 +1,44 @@
+{
+  "artifact_kind": "structural_bias_policy",
+  "n_cells": 220,
+  "saved_at": "2026-06-26T00:35:26.653327+00:00",
+  "decision_counts": {
+    "short_zero": 58,
+    "target": 54,
+    "callable_bench": 28,
+    "long_positive": 26,
+    "callable_lower": 20,
+    "callable_upper": 18,
+    "outside": 16
+  },
+  "product_name": "USD_SOFR_SWAPTION",
+  "respawn_method": "centered_hermite",
+  "callable_upper_lower_bench_bp": [
+    -0.4,
+    -0.2,
+    0.0
+  ],
+  "positive_fixed_bias_bp": 0.5,
+  "long_expiry_min_years": 15.0,
+  "positive_corner_bands": [
+    [
+      1.0,
+      10.0,
+      10.0
+    ],
+    [
+      15.0,
+      30.0,
+      20.0
+    ]
+  ],
+  "callable_expiry_years": [
+    3.0,
+    10.0
+  ],
+  "callable_terminal_years": [
+    7.0,
+    30.0
+  ],
+  "source_archive": "USD_SOFR_SWAPTION_2021-01-01_2026-05-11.csv"
+}

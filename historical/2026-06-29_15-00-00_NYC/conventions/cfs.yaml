@@ -1,0 +1,29 @@
+usd_sofr_cfs:
+  currency: USD
+  index_name: SOFR
+  projection: SOFR
+  discount: SOFR
+  caplet_convention_id: usd_sofr_cfl
+  underlying_convention_id: usd_sofr_fra
+  schedule_stub: shortback
+  # SOFR CFS is a strip of SOFR CFL caplets — same backward-looking
+  # observation. CFS resolver propagates this default to each child
+  # caplet's ResolvedCFLTrade.rate_observation. See
+  # memory/feedback_product_semantic_on_convention.md.
+  default_rate_observation: backward
+
+usd_term_sofr_cfs:
+  # Term SOFR strip — FWD sibling of `usd_sofr_cfs`. Children resolve
+  # against `usd_term_sofr_cfl`, propagating `rate_observation: forward`
+  # to each ResolvedCFLTrade. Disambiguated from `usd_sofr_cfs` via
+  # `index_name: Term_SOFR` so workbook rows match on
+  # `Underlying: Term_SOFR, Convention: Standard`. Surfaces / curve /
+  # underlying FRA are shared with the SOFR siblings.
+  currency: USD
+  index_name: Term_SOFR
+  projection: SOFR
+  discount: SOFR
+  caplet_convention_id: usd_term_sofr_cfl
+  underlying_convention_id: usd_sofr_fra
+  schedule_stub: shortback
+  default_rate_observation: forward

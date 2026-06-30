@@ -1,0 +1,18 @@
+{
+  "artifact_kind": "bias_application_policy",
+  "n_cells": 220,
+  "saved_at": "2026-06-29T00:35:01.703074+00:00",
+  "decision_counts": {
+    "apply": 92,
+    "target": 54,
+    "shrink": 28,
+    "zero": 24,
+    "no_history": 22
+  },
+  "product_name": "USD_SOFR_SWAPTION",
+  "respawn_method": "centered_hermite",
+  "window_obs": 252,
+  "oos_fit_window": 252,
+  "oos_eval_window": 63,
+  "source_archive": "USD_SOFR_SWAPTION_2021-01-01_2026-05-11.csv"
+}

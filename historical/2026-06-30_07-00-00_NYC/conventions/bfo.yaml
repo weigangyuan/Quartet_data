@@ -1,0 +1,133 @@
+cbot_treasury_bfo:
+  product_type: bond_futures_option
+  product_kind: BFO
+  instrument_style: standard
+  currency: USD
+  index_name: TREASURY
+  exchange: CBOT
+  clearing_house: CME
+  timezone: America/Chicago
+  calendar: cbot
+  legal_exercise_style: american
+  notes: >
+    CBOT options on U.S. Treasury futures. Pricing may use a European
+    approximation in model configuration, but the legal contract exercise
+    style remains American in this convention.
+
+  expiry_rule_templates:
+    serial_quarterly:
+      rule_id: cbot_treasury_serial_quarterly_last_friday
+      expiry_time: "17:30:00"
+      expiry_timezone: America/Chicago
+      min_business_days_before_prior_month_end: 2
+      holiday_adjustment: previous_business_day
+      notes: >
+        Last Friday preceding the option month by at least two business days
+        before the last business day of the month preceding the option month;
+        if that Friday is not a business day, the last trading day is the
+        prior business day.
+    weekly:
+      rule_id: cbot_treasury_weekly_designated_weekday
+      expiry_time: "17:30:00"
+      expiry_timezone: America/Chicago
+      allowed_weekdays: [mon, tue, wed, thu, fri]
+      must_expire_before_quarterly_option: true
+      notes: >
+        Weekly options expire on an exchange-designated weekday and are listed
+        so their expiration occurs before the quarterly option expiration.
+
+  underlying_assignment_rules:
+    quarterly:
+      rule_id: same_quarterly_delivery_month
+      notes: Quarterly option exercises into the same quarterly delivery month.
+    serial:
+      rule_id: next_march_cycle_quarterly_future
+      notes: Serial option exercises into the next March-cycle quarterly future.
+    weekly:
+      rule_id: exchange_designated_quarterly_future_after_expiry
+      notes: Weekly option exercises into an exchange-designated March-cycle future.
+
+  option_specs:
+    zt:
+      underlying_future_convention_id: cbot_zt_future
+      premium_tick_points: 0.0078125
+      premium_tick_value: 15.625
+      rulebook_chapter: "21A"
+      rulebook_url: https://www.cmegroup.com/rulebook/CBOT/II/21A.pdf
+      strike_grid:
+        regular_spacing_points: 0.125
+        special_spacing_points: null
+        notes: Exercise prices are listed at one-eighth point intervals.
+
+    zf:
+      underlying_future_convention_id: cbot_zf_future
+      premium_tick_points: 0.0078125
+      premium_tick_value: 7.8125
+      rulebook_chapter: "20A"
+      rulebook_url: https://www.cmegroup.com/rulebook/CBOT/II/20A.pdf
+      strike_grid:
+        regular_spacing_points: 0.25
+        special_spacing_points: null
+        notes: Exercise prices are listed at one-quarter point intervals.
+
+    zn:
+      underlying_future_convention_id: cbot_zn_future
+      premium_tick_points: 0.015625
+      premium_tick_value: 15.625
+      rulebook_chapter: "19A"
+      rulebook_url: https://www.cmegroup.com/rulebook/CBOT/II/19A.pdf
+      strike_grid:
+        regular_spacing_points: 0.5
+        special_spacing_points: 0.25
+        special_strike_applies_to: [weekly, nearest_serial, nearest_quarterly]
+        special_min_range_around_atm_points: 3.0
+        notes: >
+          Base exercise price interval is one-half point; one-quarter point
+          exercise prices are listed for weekly options and nearest-expiring
+          serial or quarterly options.
+
+    zb:
+      underlying_future_convention_id: cbot_zb_future
+      premium_tick_points: 0.015625
+      premium_tick_value: 15.625
+      rulebook_chapter: "18A"
+      rulebook_url: https://www.cmegroup.com/rulebook/CBOT/II/18A.pdf
+      strike_grid:
+        regular_spacing_points: 1.0
+        special_spacing_points: 0.5
+        special_strike_applies_to: [weekly, nearest_serial, nearest_quarterly]
+        notes: >
+          Base exercise price interval is one point; one-half point exercise
+          prices are listed for weekly options and nearest-expiring serial or
+          quarterly options.
+
+    tn:
+      underlying_future_convention_id: cbot_tn_future
+      premium_tick_points: 0.015625
+      premium_tick_value: 15.625
+      rulebook_chapter: "26A"
+      rulebook_url: https://www.cmegroup.com/rulebook/CBOT/III/26A.pdf
+      strike_grid:
+        regular_spacing_points: 0.5
+        special_spacing_points: 0.25
+        special_strike_applies_to: [weekly, nearest_serial, nearest_quarterly]
+        special_min_range_around_atm_points: 3.0
+        notes: >
+          Base exercise price interval is one-half point; one-quarter point
+          exercise prices are listed for weekly options and nearest-expiring
+          serial or quarterly options.
+
+    ub:
+      underlying_future_convention_id: cbot_ub_future
+      premium_tick_points: 0.015625
+      premium_tick_value: 15.625
+      rulebook_chapter: "40A"
+      rulebook_url: https://www.cmegroup.com/rulebook/CBOT/III/40A.pdf
+      strike_grid:
+        regular_spacing_points: 1.0
+        special_spacing_points: 0.5
+        special_strike_applies_to: [weekly, nearest_serial, nearest_quarterly]
+        notes: >
+          Base exercise price interval is one point; one-half point exercise
+          prices are listed for weekly options and nearest-expiring serial or
+          quarterly options.

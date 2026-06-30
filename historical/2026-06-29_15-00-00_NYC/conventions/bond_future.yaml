@@ -1,0 +1,160 @@
+cbot_zt_future:
+  instrument_style: standard
+  future_type: bond_future
+  currency: USD
+  index_name: TREASURY
+  exchange: CBOT
+  clearing_house: CME
+  timezone: America/Chicago
+  calendar: cbot
+  root: ZT
+  name: 2-Year U.S. Treasury Note Future
+  face_amount: 200000
+  point_value: 2000
+  price_quote_style: points_and_32nds
+  futures_tick_points: 0.00390625
+  futures_tick_value: 7.8125
+  delivery_month_cycle: [H, M, U, Z]
+  last_trade_rule_id: cbot_treasury_future_last_trade
+  delivery_rule_id: cbot_treasury_physical_delivery
+  delivery_grade_rule_id: cbot_2y_tnote_basket
+  delivery_grade_summary: >
+    U.S. Treasury notes with original term to maturity not more than 5 years
+    3 months and remaining term to maturity of at least 1 year 9 months but
+    not more than 2 years from the first day of the delivery month.
+  rulebook_chapter: "21"
+  rulebook_url: https://www.cmegroup.com/rulebook/CBOT/II/21.pdf
+
+cbot_zf_future:
+  instrument_style: standard
+  future_type: bond_future
+  currency: USD
+  index_name: TREASURY
+  exchange: CBOT
+  clearing_house: CME
+  timezone: America/Chicago
+  calendar: cbot
+  root: ZF
+  name: 5-Year U.S. Treasury Note Future
+  face_amount: 100000
+  point_value: 1000
+  price_quote_style: points_and_32nds
+  futures_tick_points: 0.0078125
+  futures_tick_value: 7.8125
+  delivery_month_cycle: [H, M, U, Z]
+  last_trade_rule_id: cbot_treasury_future_last_trade
+  delivery_rule_id: cbot_treasury_physical_delivery
+  delivery_grade_rule_id: cbot_5y_tnote_basket
+  delivery_grade_summary: >
+    U.S. Treasury notes with original term to maturity not more than 5 years
+    3 months and remaining term to maturity of at least 4 years 2 months from
+    the first day of the delivery month.
+  rulebook_chapter: "20"
+  rulebook_url: https://www.cmegroup.com/rulebook/CBOT/II/20.pdf
+
+cbot_zn_future:
+  instrument_style: standard
+  future_type: bond_future
+  currency: USD
+  index_name: TREASURY
+  exchange: CBOT
+  clearing_house: CME
+  timezone: America/Chicago
+  calendar: cbot
+  root: ZN
+  name: 10-Year U.S. Treasury Note Future
+  face_amount: 100000
+  point_value: 1000
+  price_quote_style: points_and_32nds
+  futures_tick_points: 0.015625
+  futures_tick_value: 15.625
+  delivery_month_cycle: [H, M, U, Z]
+  last_trade_rule_id: cbot_treasury_future_last_trade
+  delivery_rule_id: cbot_treasury_physical_delivery
+  delivery_grade_rule_id: cbot_10y_tnote_basket
+  delivery_grade_summary: >
+    U.S. Treasury notes with original term to maturity not more than 10 years
+    and remaining term to maturity of at least 6 years 6 months but not more
+    than 10 years from the first day of the delivery month.
+  rulebook_chapter: "19"
+  rulebook_url: https://www.cmegroup.com/rulebook/CBOT/II/19.pdf
+
+cbot_zb_future:
+  instrument_style: standard
+  future_type: bond_future
+  currency: USD
+  index_name: TREASURY
+  exchange: CBOT
+  clearing_house: CME
+  timezone: America/Chicago
+  calendar: cbot
+  root: ZB
+  name: U.S. Treasury Bond Future
+  face_amount: 100000
+  point_value: 1000
+  price_quote_style: points_and_32nds
+  futures_tick_points: 0.03125
+  futures_tick_value: 31.25
+  delivery_month_cycle: [H, M, U, Z]
+  last_trade_rule_id: cbot_treasury_future_last_trade
+  delivery_rule_id: cbot_treasury_physical_delivery
+  delivery_grade_rule_id: cbot_tbond_basket
+  delivery_grade_summary: >
+    U.S. Treasury bonds with remaining term to maturity of at least 15 years
+    but less than 25 years from the first day of the delivery month, subject
+    to rulebook callable-bond treatment.
+  rulebook_chapter: "18"
+  rulebook_url: https://www.cmegroup.com/rulebook/CBOT/II/18.pdf
+
+cbot_tn_future:
+  instrument_style: standard
+  future_type: bond_future
+  currency: USD
+  index_name: TREASURY
+  exchange: CBOT
+  clearing_house: CME
+  timezone: America/Chicago
+  calendar: cbot
+  root: TN
+  name: Ultra 10-Year U.S. Treasury Note Future
+  face_amount: 100000
+  point_value: 1000
+  price_quote_style: points_and_32nds
+  futures_tick_points: 0.015625
+  futures_tick_value: 15.625
+  delivery_month_cycle: [H, M, U, Z]
+  last_trade_rule_id: cbot_treasury_future_last_trade
+  delivery_rule_id: cbot_treasury_physical_delivery
+  delivery_grade_rule_id: cbot_ultra_10y_tnote_basket
+  delivery_grade_summary: >
+    U.S. Treasury notes with original term to maturity not more than 10 years
+    and remaining term to maturity of at least 9 years 5 months but not more
+    than 10 years from the first day of the delivery month.
+  rulebook_chapter: "26"
+  rulebook_url: https://www.cmegroup.com/rulebook/CBOT/III/26.pdf
+
+cbot_ub_future:
+  instrument_style: standard
+  future_type: bond_future
+  currency: USD
+  index_name: TREASURY
+  exchange: CBOT
+  clearing_house: CME
+  timezone: America/Chicago
+  calendar: cbot
+  root: UB
+  name: Ultra U.S. Treasury Bond Future
+  face_amount: 100000
+  point_value: 1000
+  price_quote_style: points_and_32nds
+  futures_tick_points: 0.03125
+  futures_tick_value: 31.25
+  delivery_month_cycle: [H, M, U, Z]
+  last_trade_rule_id: cbot_treasury_future_last_trade
+  delivery_rule_id: cbot_treasury_physical_delivery
+  delivery_grade_rule_id: cbot_ultra_tbond_basket
+  delivery_grade_summary: >
+    U.S. Treasury bonds with remaining term to maturity of at least 25 years
+    from the first day of the delivery month.
+  rulebook_chapter: "40"
+  rulebook_url: https://www.cmegroup.com/rulebook/CBOT/III/40.pdf

@@ -1,0 +1,12 @@
+usd_sofr_bermswaption:
+  currency: USD
+  index_name: SOFR
+  projection: SOFR
+  discount: SOFR
+  # Per-call European-swaption mechanics (calendar, day-count, expiry
+  # time/timezone, settlement_days) flow through this referenced
+  # convention. The Berm convention only carries call-schedule semantics
+  # on top.
+  european_convention_id: usd_sofr_swaption
+  default_call_frequency: 1Y
+  exercise_date_snap: fixed_schedule_subset
