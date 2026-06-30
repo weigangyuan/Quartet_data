@@ -1,0 +1,8 @@
+# VCUB skew screenshots + ingest cache — transient working inputs to the
+# Layer-3 skew respawn; the durable copies are persisted to the EOD archive.
+# See VCUB_SKEW_RESPAWN.md §6.1 in the code repo.
+historical/Static_skew_quote_set/**/*.png
+historical/Static_skew_quote_set/**/_ingest_cache.json
+
+# OS / editor junk
+.DS_Store

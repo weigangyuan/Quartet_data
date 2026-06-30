@@ -1,0 +1,17 @@
+usd_sofr_fra:
+  currency: USD
+  index_name: SOFR
+  projection: SOFR
+  discount: SOFR
+  accrual_day_count: ACT360
+  calendar: nyc
+  start_date_modifier: mf
+  end_date_modifier: mf
+  end_of_month: false
+  payment_lag: 2
+  payment_calendar: nyc
+  payment_modifier: f
+  observation_shift_bd: 0
+  observation_calendar: nyc
+  forward_rate_method: discount_ratio
+  compounding: simple

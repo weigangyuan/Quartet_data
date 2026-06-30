@@ -1,0 +1,51 @@
+usd_sofr_cfl:
+  currency: USD
+  index_name: SOFR
+  projection: SOFR
+  discount: SOFR
+  calendar: nyc
+  expiry_modifier: mf
+  expiry_time: "11:00:00"
+  expiry_timezone: America/New_York
+  exercise_style: european
+  underlying_convention_id: usd_sofr_fra
+  # SOFR CFL caplets pay the daily-compounded overnight rate (BWD / RFR-style),
+  # observed at the end of the accrual period (τ_1). The pricer adapter
+  # dispatches on this in Stage 4 — until then the field is read by the
+  # resolver but ignored by pricing. See memory/project_cfl_bwd_fwd_caplet.md.
+  default_rate_observation: backward
+  typical_value_ranges:
+    normal_vol_bp: [0, 1000]
+    strike_bp: [-10000, 10000]
+
+usd_term_sofr_cfl:
+  # Term SOFR caplet — FWD product. Disambiguated from `usd_sofr_cfl`
+  # via the `index_name` axis (Term_SOFR vs SOFR), so workbook rows set
+  # `Underlying: Term_SOFR, Convention: Standard` — natural trader model
+  # where the underlying name picks the rate flavor and `Standard`
+  # is the default convention per underlying.
+  #
+  # Surfaces / curve / FRA underlying are SHARED with the SOFR siblings
+  # (vol_surface_id=USD_SOFR_CFL_ATM, skew=USD_SOFR_CFL_SKEW,
+  # underlying_convention_id=usd_sofr_fra). Source surface flavor is
+  # 'forward', so a 'forward' Term trade prices via the source==target
+  # pass-through in the pricer with no derivation step — the original
+  # LIBOR-style τ₀-as-expiry path. Zero-basis assumption today (Term
+  # SOFR fixings ≈ compounded SOFR forward); a future Term-vs-compounded
+  # basis would land as either (a) a separate `usd_term_sofr_fra`
+  # underlying or (b) a per-cell bias config on a Term-SOFR-specific
+  # derivation layer.
+  currency: USD
+  index_name: Term_SOFR
+  projection: SOFR
+  discount: SOFR
+  calendar: nyc
+  expiry_modifier: mf
+  expiry_time: "11:00:00"
+  expiry_timezone: America/New_York
+  exercise_style: european
+  underlying_convention_id: usd_sofr_fra
+  default_rate_observation: forward
+  typical_value_ranges:
+    normal_vol_bp: [0, 1000]
+    strike_bp: [-10000, 10000]

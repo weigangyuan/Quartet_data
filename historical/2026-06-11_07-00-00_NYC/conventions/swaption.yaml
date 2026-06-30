@@ -1,0 +1,18 @@
+usd_sofr_swaption:
+  currency: USD
+  index_name: SOFR
+  projection: SOFR
+  discount: SOFR
+  calendar: nyc
+  expiry_modifier: mf
+  expiry_time: "11:00:00"
+  expiry_timezone: America/New_York
+  settlement_days: 2
+  exercise_style: european
+  underlying_convention_id: usd_sofr_irs
+  # Plausibility guards keyed by data type. ATM normal vols typically run
+  # 30-200 bp on swaptions; skew offsets are ATM±200 bp at most. Quotes
+  # outside raise at validation time — catches unit bugs and bad ticks.
+  typical_value_ranges:
+    atm_vol_bp:    [0, 500]
+    skew_offset:   [-1000, 1000]

@@ -1,0 +1,46 @@
+usd_sofr_irs:
+  currency: USD
+  index_name: SOFR
+  projection: SOFR
+  discount: SOFR
+  fixed_leg_frequency: A
+  fixed_leg_day_count: ACT360
+  float_leg_frequency: A
+  float_leg_day_count: ACT360
+  fixing_method: rfr_payment_delay
+  method_param: 0
+  spread_compound_method: none_simple
+  stub: shortfront
+  eom: false
+  modifier: mf
+  calendar: nyc
+  payment_lag: 2
+  settlement_days: 2
+  # Plausibility guard for par-rate quotes (scaled to decimal). SOFR policy
+  # rate has been in [-0.05, 0.25] since 2008. Quotes outside raise at
+  # validation time — catches unit-conversion bugs (e.g., percent vs decimal)
+  # and bad ticks before they hit the bootstrapper.
+  typical_value_range: [-0.05, 0.25]
+
+eur_euribor3m_irs:
+  currency: EUR
+  index_name: EURIBOR3M
+  projection: EURIBOR3M
+  discount: EURIBOR3M
+  fixed_leg_frequency: A
+  fixed_leg_day_count: ACT360
+  float_leg_frequency: Q
+  float_leg_day_count: ACT360
+  fixing_method: ibor
+  method_param: 2
+  spread_compound_method: none_simple
+  stub: shortfront
+  eom: false
+  modifier: mf
+  calendar: tgt
+  payment_lag: 0
+  settlement_days: 2
+  # EUR rates have spent significant time negative (ECB DFR -0.50% 2019-22)
+  # and reached ~4% in the 2023-24 hiking cycle. Range covers history with
+  # headroom; tighten if the desk wants stricter quote-tick validation.
+  typical_value_range: [-0.01, 0.06]

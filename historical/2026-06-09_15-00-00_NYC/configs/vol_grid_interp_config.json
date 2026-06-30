@@ -1,0 +1,1 @@
+{"expiry_extrapolation_method":"flat","expiry_interp_beyond_cutoff":"linear_variance_datetime","expiry_interp_within_1y":"weighted_time_piecewise_constant","flat_extrapolation":true,"tenor_interp_method":"linear_vol","year_basis":365.0}
